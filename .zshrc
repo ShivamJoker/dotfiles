@@ -34,6 +34,8 @@ fi
 # Config
 SAVEHIST=50000
 HISTFILE=~/.zsh_history
+#set history size
+export HISTSIZE=50000
 
 # Basic auto/tab complete:
 # autoload -U compinit
@@ -92,9 +94,10 @@ alias G='git'
 # alias npm='pnpm'
 alias gl='gitlab-cli'
 
-function scripts() {
-     jq -r '.scripts' < package.json 
-}
+
+#view package json content
+alias scripts="jq -r '.scripts' < package.json"
+alias deps="jq -r '.dependencies' < package.json"
 
 alias mkcd='(){ mkdir -p "$1" && cd "$1" ;}'
 
